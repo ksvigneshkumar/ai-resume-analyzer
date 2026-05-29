@@ -9,7 +9,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // FILE SELECT
   const handleFiles = (e) => {
 
     const selectedFiles = [...e.target.files];
@@ -24,7 +23,6 @@ export default function Home() {
 
     });
 
-    // WRONG FILE ERROR
     if (validFiles.length !== selectedFiles.length) {
 
       setError("Only PDF and DOCX files are allowed");
@@ -37,10 +35,8 @@ export default function Home() {
     setFiles(validFiles);
   };
 
-  // UPLOAD
   const uploadResumes = async () => {
 
-    // NO FILE ERROR
     if (files.length === 0) {
 
       setError("Please select resume files");
@@ -98,13 +94,9 @@ export default function Home() {
 
     <div className="min-h-screen bg-black text-white p-10">
 
-      {/* TITLE */}
-
       <h1 className="text-5xl font-bold text-center text-cyan-400 mb-10">
         AI Resume Analyzer
       </h1>
-
-      {/* JOB CARD */}
 
       <div className="max-w-4xl mx-auto bg-zinc-900 border border-zinc-700 rounded-3xl p-10 shadow-2xl">
 
@@ -115,8 +107,6 @@ export default function Home() {
         <p className="text-gray-300 mb-6">
           Upload resumes to analyze candidate skills using AI.
         </p>
-
-        {/* REQUIRED SKILLS */}
 
         <div className="mb-8">
 
@@ -152,8 +142,6 @@ export default function Home() {
 
         </div>
 
-        {/* FILE UPLOAD */}
-
         <div className="flex flex-col items-center gap-5">
 
           <label className="bg-cyan-500 hover:bg-cyan-400 transition px-8 py-4 rounded-xl text-black font-bold cursor-pointer">
@@ -181,8 +169,6 @@ export default function Home() {
             {loading ? "Analyzing..." : "Upload Resume"}
           </button>
 
-          {/* ERROR */}
-
           {error && (
             <p className="text-red-400 font-semibold">
               {error}
@@ -192,8 +178,6 @@ export default function Home() {
         </div>
 
       </div>
-
-      {/* LOADING */}
 
       {loading && (
 
@@ -209,8 +193,6 @@ export default function Home() {
 
       )}
 
-      {/* RESULTS */}
-
       <div className="mt-10 space-y-8">
 
         {results.map((item, index) => (
@@ -225,8 +207,6 @@ export default function Home() {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
-
-              {/* LEFT */}
 
               <div className="space-y-5">
 
@@ -311,8 +291,6 @@ export default function Home() {
                 </div>
 
               </div>
-
-              {/* RIGHT */}
 
               <div>
 
